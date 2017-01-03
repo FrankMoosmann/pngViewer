@@ -14,6 +14,8 @@ SOURCES += \
     ImgViewer.cpp
 
 LIBS += \
+   -lpng \
    -lboost_filesystem \
+   -lboost_system \
    -lboost_regex
 

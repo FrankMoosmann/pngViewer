@@ -1,3 +1,4 @@
 Makefile
 pngDistImgViewer
 *.o
+moc_*.cpp

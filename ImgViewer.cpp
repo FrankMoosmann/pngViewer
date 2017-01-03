@@ -32,7 +32,6 @@ ImgViewer::ImgViewer(const vector<string> &filenames)
 
 #ifdef BOOST_FILESYSTEM_FILESYSTEM_HPP
 #ifdef BOOST_RE_REGEX_HPP
-#warning compiling with boost-support
   vector<string> recImages;
   namespace fs = boost::filesystem;
   const boost::regex scanfilter( ".*\\.png" ); // "\\" is transformed into "\" at compile-time
@@ -47,8 +46,8 @@ ImgViewer::ImgViewer(const vector<string> &filenames)
           fs::path currFile = *iter;
           if (!is_regular_file(currFile)) continue; // Skip if not a file //i->status()
           if (is_directory(currFile)) continue; // Skip if it is a directory // i->status()
-          if (!boost::regex_match( currFile.leaf(), what, scanfilter)) continue; // Skip if no match
-          imageNames.push_back(currFile.file_string()); // File matches, store it
+          if (!boost::regex_match( currFile.filename().string(), what, scanfilter)) continue; // Skip if no match
+          imageNames.push_back(currFile.string()); // File matches, store it
         }
         sort(imageNames.begin(), imageNames.end()); // sort alphabetically
         recImages.insert(recImages.end(), imageNames.begin(), imageNames.end());
