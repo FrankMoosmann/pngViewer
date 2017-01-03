@@ -1,0 +1,19 @@
+PREREQUISITES
+=============
+The following software must be installed on the system:
+- some C++ compiler suite
+- QT4
+- png++ (http://www.nongnu.org/pngpp/) or (sudo apt-get install libpng++-dev)
+
+Optionally:
+- boost_filesystem
+- boost_regex
+
+
+COMPILATION
+===========
+1) In case the boost libraries are not available, please uncomment the respective two lines in PngDistImgViewer.pro 
+2) To compile the program on linux systems type
+  qmake-qt4
+  make
+
